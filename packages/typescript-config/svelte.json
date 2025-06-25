@@ -1,5 +1,15 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/ui": ["../../packages/ui/src"],
+      "@repo/ui/*": ["../../packages/ui/src/*"],
+
+      "@repo/typescript-config/*": ["../*"]
+    },
     "allowJs": true,
     "checkJs": true,
     "esModuleInterop": true,
