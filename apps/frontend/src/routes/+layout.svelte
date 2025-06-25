@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '@repo/ui/global-styles'
+	import '../styles/app.css'
 
 	let { children } = $props()
 </script>

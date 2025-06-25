@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@import 'tailwindcss';
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@config "../../tailwind.config.ts";
+
+@theme {
+	--color-putih: #fff;
+}
+
+.scroll-bar {
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+	&::-webkit-scrollbar-track {
+		@apply bg-transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		@apply bg-black;
+	}
+}
+
+@layer components {
+	.container {
+		@apply mx-auto px-4 sm:px-6 lg:px-8;
+		@apply max-w-7xl;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+@layer base {
+	* {
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply font-poppins-base text-[16px] font-normal leading-4 tracking-wider;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-poppins-base font-bold tracking-wider;
+	}
+
+	h1 {
+		@apply text-h1;
+	}
+	h2 {
+		@apply text-h2;
+	}
+	h3 {
+		@apply text-h3;
+	}
+	h4 {
+		@apply text-h4;
+	}
+}

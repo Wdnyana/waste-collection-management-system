@@ -1,42 +1,18 @@
-@import 'tailwindcss';
-@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
-@layer base {
-  /* :root {
-    --background: 39 14% 84%;
-    --foreground: 26 16% 37%;
-    --card: 39 14% 84%;
-    --card-foreground: 26 16% 37%;
-    --popover: 39 14% 84%;
-    --popover-foreground: 26 16% 37%;
-    --primary: 26 16% 37%;
-    --primary-foreground: 39 14% 84%;
-    --secondary: 96 9% 56%;
-    --secondary-foreground: 39 14% 84%;
-    --muted: 84 6% 40%;
-    --muted-foreground: 39 14% 84%;
-    --accent: 96 9% 56%;
-    --accent-foreground: 39 14% 84%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 39 14% 84%;
-    --border: 84 6% 40%;
-    --input: 84 6% 40%;
-    --ring: 26 16% 37%;
-    --chart-1: 39 14% 84%;
-    --chart-2: 26 16% 37%;
-    --chart-3: 96 9% 56%;
-    --chart-4: 84 6% 40%;
-    --chart-5: 39 14% 84%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  } */
+@import 'tailwindcss';
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@config "../../tailwind.config.ts";
+
+@theme {
+  /* example custom in tailwind v4 */
+  /* color */
+  --color-putih: #fff;
+  /* end color */
 }
 
 .scroll-bar {
@@ -67,7 +43,6 @@
 
 @layer base {
   * {
-    @apply border-border;
     box-sizing: border-box;
     scroll-behavior: smooth;
   }

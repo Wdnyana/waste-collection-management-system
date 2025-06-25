@@ -11,7 +11,7 @@
   "devDependencies": {
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "^2.32.0",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.1",
     "prettier-plugin-svelte": "^3.4.0",
     "turbo": "^2.5.4"
   },
