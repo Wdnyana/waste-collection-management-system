@@ -2,7 +2,7 @@
 	import type { LayoutProps } from '../../types/type-layout'
 	import { DropdownMenu } from '@repo/ui'
 
-	import { HamburgerMenu, PinRight } from 'radix-icons-svelte'
+	import { HamburgerMenu, Enter } from 'radix-icons-svelte'
 
 	let { open, toggle }: LayoutProps = $props()
 </script>
@@ -37,8 +37,8 @@
 			<DropdownMenu />
 		</div>
 
-		<button class="ms-4 p-2 rounded-full">
-			<PinRight class="h-7 w-7 text-red-500" />
+		<button class="cursor-pointer ms-4 p-2 rounded-full">
+			<Enter class="h-7 w-7 " />
 		</button>
 	</div>
 </header>

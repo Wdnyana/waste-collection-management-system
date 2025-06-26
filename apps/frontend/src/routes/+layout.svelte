@@ -29,11 +29,12 @@
 
 <!-- sidebar mobile terbuka -->
 {#if openSidebar}
-	<div
+	<button
 		onclick={sidebarToggle}
 		class="bg-black/50 fixed inset-0 z-10 lg:hidden"
 		transition:fly={{ duration: 300, easing: sineOut, opacity: 0.5 }}
-	></div>
+		aria-label="Tutup sidebar"
+	></button>
 {/if}
 
 {#if !openSidebar && browser && window.innerWidth >= 1024}
@@ -47,12 +48,13 @@
 {/if}
 
 <div class="relative h-screen bg-gray-100 text-gray-800 lg:grid lg:grid-cols-12 lg:grid-rows-12">
-	<!-- Sidebar -->
+	<!-- Sidebar Konten -->
 	<Sidebar open={openSidebar} toggle={sidebarToggle} />
 
-	<!-- div2: Header Konten -->
+	<!-- Header Konten -->
 	<Header open={openSidebar} toggle={sidebarToggle} />
-	<!-- div3: Konten Utama -->
+
+	<!-- Main Konten -->
 	<main
 		class="h-full overflow-y-auto mx-4 mb-4 lg:p-5 lg:m-0 lg:row-start-2 lg:row-span-11 border"
 		class:lg:col-start-4={openSidebar}
