@@ -1,8 +1,9 @@
 <script lang="ts">
 	import type { LayoutProps } from '../../types/type-layout'
-	import { DropdownMenu, Button } from '@repo/ui'
+	import { DropdownMenu, Button, Breadcrumb } from '@repo/ui'
 
 	import { HamburgerMenu, Enter } from 'radix-icons-svelte'
+	import { breadcrumbItems } from '../../utils/breadcrumb'
 
 	let { open, toggle }: LayoutProps = $props()
 </script>
@@ -27,9 +28,13 @@
 			<HamburgerMenu class="w-6 h-6" />
 		</Button>
 		{#if !open}
-			<h1 class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-8">Dashboard</h1>
+			<div class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-8">
+				<Breadcrumb items={breadcrumbItems} />
+			</div>
 		{:else}
-			<h1 class="text-center ps-3 lg:text-start text-2xl font-semibold">Dashboard</h1>
+			<div class="text-center ps-3 lg:text-start text-2xl font-semibold">
+				<Breadcrumb items={breadcrumbItems} />
+			</div>
 		{/if}
 	</div>
 
