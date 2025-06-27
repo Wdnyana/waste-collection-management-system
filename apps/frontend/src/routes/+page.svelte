@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { MyCounterButton } from '@repo/ui'
+	import { Accordion, Button, Breadcrumb } from '@repo/ui'
 </script>
 
-<h1>Web</h1>
-<MyCounterButton />
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-<h1 class='bg-black p-12 text-putih'>dasdadasd</h1>
+<!-- konten dibawah ini -->
+<div class="h-full w-full overflow-x-hidden">
+	<!-- disini -->
+</div>

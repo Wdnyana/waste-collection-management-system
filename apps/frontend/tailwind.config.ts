@@ -1,16 +1,37 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 
 export default {
-	content: [
-		'./src/app.html',
-		'./src/**/*.{html,js,svelte,ts}',
-		'./src/lib/**/*.{html,js,svelte,ts}',
-		'./src/components/**/*.{html,js,svelte,ts}',
-		'./src/routes/**/*.{html,js,svelte,ts}',
-	],
+	content: ['./src/**/*.{html,js,svelte,ts}', './src/lib/components/**/*.{html,js,svelte,ts}'],
 
 	theme: {
 		extend: {
+			typography: () => ({
+				DEFAULT: {
+					css: {
+						code: {
+							position: 'relative',
+						},
+					},
+				},
+			}),
+
+			colors: {
+				magnum: {
+					'50': '#fff9ed',
+					'100': '#fef2d6',
+					'200': '#fce0ac',
+					'300': '#f9c978',
+					'400': '#f7b155',
+					'500': '#f38d1c',
+					'600': '#e47312',
+					'700': '#bd5711',
+					'800': '#964516',
+					'900': '#793a15',
+					'950': '#411c09',
+				},
+			},
+
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -42,22 +63,6 @@ export default {
 				'fluid-xl': 'clamp(3rem, 5vw, 4rem)',
 			},
 
-			// Advanced grid and flex utilities
-			gridTemplateColumns: {
-				'auto-fit-sm': 'repeat(auto-fit, minmax(200px, 1fr))',
-				'auto-fit-md': 'repeat(auto-fit, minmax(250px, 1fr))',
-				'auto-fit-lg': 'repeat(auto-fit, minmax(300px, 1fr))',
-
-				// Sidebar responsive grid configurations
-				'sidebar-mobile': '1fr', // Full width pada mobile
-				'sidebar-tablet': '3fr 9fr', // 3:9 ratio pada tablet
-				'sidebar-desktop': '3fr 9fr', // 3:9 ratio pada desktop
-			},
-
-			gridTemplateRows: {
-				layout: 'auto 1fr auto',
-			},
-
 			// Responsive container max-widths with fluid approach
 			maxWidth: {
 				'fluid-container': 'clamp(100%, 90vw, 1440px)',
@@ -82,6 +87,7 @@ export default {
 	},
 
 	plugins: [
+		typography,
 		function ({ addUtilities }) {
 			const responsiveContainer = {
 				'.responsive-container': {
@@ -96,8 +102,17 @@ export default {
 			}
 			addUtilities(responsiveContainer)
 		},
-
-		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		require('@tailwindcss/typography'),
+		function ({ addVariant, matchUtilities, theme }) {
+			addVariant('hocus', ['&:hover', '&:focus'])
+			matchUtilities(
+				{
+					square: (value) => ({
+						width: value,
+						height: value,
+					}),
+				},
+				{ values: theme('spacing') },
+			)
+		},
 	],
-} as Config
+} satisfies Config
