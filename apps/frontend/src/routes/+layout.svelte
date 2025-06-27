@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte'
 	import { browser } from '$app/environment'
 
+	import { Button } from '@repo/ui'
 	import '@repo/ui/global-styles'
 	import '../styles/app.css'
 	import Sidebar from '../lib/components/Layout/Sidebar.svelte'
@@ -31,20 +32,22 @@
 {#if openSidebar}
 	<button
 		onclick={sidebarToggle}
-		class="bg-black/50 fixed inset-0 z-10 lg:hidden"
+		class="bg-black/50 cursor-pointer fixed inset-0 z-10 lg:hidden"
 		transition:fly={{ duration: 300, easing: sineOut, opacity: 0.5 }}
 		aria-label="Tutup sidebar"
 	></button>
 {/if}
 
 {#if !openSidebar && browser && window.innerWidth >= 1024}
-	<button
+	<Button
+		variant="outline"
+		size="icon"
 		onclick={sidebarToggle}
-		class="hidden lg:block fixed top-[15px] left-1 z-30 p-2 bg-white text-gray-600 rounded-full hover:bg-gray-100 transition-colors"
+		class="hidden cursor-pointer text-gray-900 border-none lg:block fixed top-[20px] left-5 z-30 p-2 rounded-full transition-colors"
 		aria-label="Buka sidebar"
 	>
 		<ChevronRight class="w-6 h-6" />
-	</button>
+	</Button>
 {/if}
 
 <div class="relative h-screen bg-gray-100 text-gray-800 lg:grid lg:grid-cols-12 lg:grid-rows-12">
@@ -56,7 +59,7 @@
 
 	<!-- Main Konten -->
 	<main
-		class="h-full overflow-y-auto mx-4 mb-4 lg:p-5 lg:m-0 lg:row-start-2 lg:row-span-11 border"
+		class="h-full overflow-y-auto mx-4 mb-4 lg:p-4 lg:m-0 lg:row-start-2 lg:row-span-11 scroll-bar"
 		class:lg:col-start-4={openSidebar}
 		class:lg:col-span-9={openSidebar}
 		class:xl:col-start-3={openSidebar}

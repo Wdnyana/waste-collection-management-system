@@ -3,7 +3,7 @@
 	import { ChevronLeft } from 'radix-icons-svelte'
 	import { DropdownMenu } from '@repo/ui'
 
-	import { SidebarItem } from '@repo/ui'
+	import { SidebarItem, Button } from '@repo/ui'
 	import type { LayoutProps } from '../../types/type-layout'
 	import Logo from '../../assets/Group.png'
 
@@ -22,7 +22,7 @@ lg:relative lg:inset-y-auto lg:left-auto lg:z-auto lg:shadow-none lg:row-span-12
 	>
 		<div class="flex flex-col h-full">
 			<div
-				class="flex items-center justify-between border-b border-gray-200 px-4 py-[20.5px] lg:py-[18.5px] xl:py-[22.5px]"
+				class="flex items-center justify-between border-b border-gray-200 px-4 py-[16.5px] lg:py-[16.5px] xl:py-[20.5px]"
 			>
 				<div class="flex items-center">
 					<a href="/">
@@ -31,16 +31,18 @@ lg:relative lg:inset-y-auto lg:left-auto lg:z-auto lg:shadow-none lg:row-span-12
 
 					<h2 class="text-xl md:text-2xl font-bold tracking-wider text-gray-800">WWWASTE</h2>
 				</div>
-				<button
+				<Button
+					variant="outline"
+					size="icon"
 					onclick={toggle}
-					class="p-2 rounded-full -me-3 text-gray-500 hover:bg-gray-100"
+					class="cursor-pointer p-2 rounded-full -me-2 text-gray-900 border-none"
 					aria-label="Tutup sidebar"
 				>
 					<ChevronLeft class="w-5 h-5" />
-				</button>
+				</Button>
 			</div>
 
-			<nav class="flex-grow px-4 py-2 my-2 overflow-y-auto">
+			<nav class="flex-grow px-4 py-2 my-2 overflow-y-auto scroll-bar">
 				<SidebarItem />
 			</nav>
 

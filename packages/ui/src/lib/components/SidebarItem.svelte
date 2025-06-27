@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Dashboard, IdCard, FileText } from 'radix-icons-svelte'
+  import { menuGroups } from './../utils/sidebar-item'
+
   import { createDropdownMenu, melt } from '@melt-ui/svelte'
 
   const {
@@ -9,22 +10,6 @@
   })
 
   let activeItem = $state('#dashboard')
-
-  const menuGroups = [
-    {
-      title: 'general',
-      items: [{ href: '#dashboard', label: 'Dashboard', icon: Dashboard }],
-    },
-    {
-      title: 'operations',
-      items: [
-        { href: '#schedule-collect', label: 'Schedule Collection', icon: IdCard },
-        { href: '#collect-history', label: 'Collect History', icon: FileText },
-        { href: '#waybill', label: 'Waybill', icon: FileText },
-        { href: '#report', label: 'Report', icon: FileText },
-      ],
-    },
-  ]
 </script>
 
 <ul>

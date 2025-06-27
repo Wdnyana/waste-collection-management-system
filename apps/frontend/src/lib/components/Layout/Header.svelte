@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LayoutProps } from '../../types/type-layout'
-	import { DropdownMenu } from '@repo/ui'
+	import { DropdownMenu, Button } from '@repo/ui'
 
 	import { HamburgerMenu, Enter } from 'radix-icons-svelte'
 
@@ -17,15 +17,17 @@
 	class:lg:col-span-12={!open}
 >
 	<div class="flex items-center px-3">
-		<button
+		<Button
+			variant="outline"
+			size="icon"
 			onclick={toggle}
-			class="lg:hidden mr-4 p-2 rounded-full hover:bg-gray-100"
+			class="lg:hidden mr-4 p-2 rounded-full text-gray-900 border-none hover:bg-gray-100"
 			aria-label="Buka sidebar"
 		>
 			<HamburgerMenu class="w-6 h-6" />
-		</button>
+		</Button>
 		{#if !open}
-			<h1 class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-5">Dashboard</h1>
+			<h1 class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-8">Dashboard</h1>
 		{:else}
 			<h1 class="text-center ps-3 lg:text-start text-2xl font-semibold">Dashboard</h1>
 		{/if}
@@ -37,8 +39,12 @@
 			<DropdownMenu />
 		</div>
 
-		<button class="cursor-pointer ms-4 p-2 rounded-full">
+		<Button
+			href="#logout"
+			variant="outline"
+			class="border-none cursor-pointer ms-4 p-3 rounded-full text-gray-900"
+		>
 			<Enter class="h-7 w-7 " />
-		</button>
+		</Button>
 	</div>
 </header>
