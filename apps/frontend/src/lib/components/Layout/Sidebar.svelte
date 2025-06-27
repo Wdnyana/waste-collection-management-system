@@ -22,7 +22,7 @@ lg:relative lg:inset-y-auto lg:left-auto lg:z-auto lg:shadow-none lg:row-span-12
 	>
 		<div class="flex flex-col h-full">
 			<div
-				class="flex items-center justify-between border-b border-gray-200 px-4 py-[16.5px] lg:py-[16.5px] xl:py-[20.5px]"
+				class="flex items-center justify-between border-b border-gray-200 px-4 py-[16.5px] lg:py-[14.5px] xl:py-[18px]"
 			>
 				<div class="flex items-center">
 					<a href="/">
