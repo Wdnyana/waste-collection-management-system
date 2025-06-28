@@ -22,4 +22,4 @@ const vehicleSchema = new Schema<IVehicle>(
 
 vehicleSchema.index({ currentLocation: '2dsphere' })
 
-export const Vehicle = model<IVehicle>('vehicles', vehicleSchema)
+export const Vehicle = model<IVehicle>('Vehicle', vehicleSchema)

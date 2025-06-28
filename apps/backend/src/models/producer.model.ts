@@ -20,4 +20,4 @@ const producerSchema = new Schema<IProducer>(
 
 producerSchema.index({ location: '2dsphere' })
 
-export const Producer = model<IProducer>('producers', producerSchema)
+export const Producer = model<IProducer>('Producer', producerSchema)

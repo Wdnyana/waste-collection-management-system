@@ -1,8 +1,15 @@
 import HyperExpress from 'hyper-express'
+import cors from 'cors'
 
 import { dbConnection } from './config/db-connection'
 import { config } from './config/env'
 import { logger } from './config/pino'
+
+import vehicleRouter from './api/routes/vehicle.routes'
+import collectionRouter from './api/routes/collection.routes'
+import producerRouter from './api/routes/producer.routes'
+import dashboardRouter from './api/routes/dashboard.routes'
+import { monitoringWebSocket } from './websockets/monitoring.handler'
 
 const startServer = async () => {
 	await dbConnection()
@@ -11,6 +18,15 @@ const startServer = async () => {
 	app.get('/', (request, response) => {
 		response.send('Hyper Express Server is running...🚀')
 	})
+
+	app.use(cors())
+
+	app.use('/api/vehicles', vehicleRouter)
+	app.use('/api/collections', collectionRouter)
+	app.use('/api/producers', producerRouter)
+	app.use('/api/dashboard', dashboardRouter)
+
+	monitoringWebSocket(app)
 
 	app.use((req, res, next) => {
 		const start = Date.now()
