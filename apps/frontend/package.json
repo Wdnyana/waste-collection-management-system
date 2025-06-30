@@ -17,13 +17,15 @@
 	},
 	"dependencies": {
 		"@lucide/svelte": "^0.523.0",
-		"@repo/ui": "workspace:*",
 		"@repo/shared": "workspace:*",
+		"@repo/ui": "workspace:*",
 		"@tailwindcss/vite": "^4.1.10",
+		"chart.js": "^4.5.0",
 		"clsx": "^2.1.1",
 		"leaflet": "^1.9.4",
 		"melt": "^0.35.3",
 		"radix-icons-svelte": "^1.2.1",
+		"svelte-chartjs": "^3.1.5",
 		"tailwind-merge": "^3.3.1",
 		"tailwind-variants": "^1.0.0",
 		"tailwindcss": "^4.1.10"

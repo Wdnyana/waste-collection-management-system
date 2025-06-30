@@ -30,6 +30,13 @@ export default {
 					'900': '#793a15',
 					'950': '#411c09',
 				},
+
+				indicator: {
+					todo: '#4C6DC1',
+					next: '#3AAAFB',
+					done: '#28DE57',
+					anomaly: '#FB3422',
+				},
 			},
 
 			borderRadius: {

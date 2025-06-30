@@ -4,6 +4,10 @@ import { Types } from 'mongoose'
 
 export const createCollection = async (data: Partial<ICollection>): Promise<ICollection> => {
 	const newCollection = new Collection(data)
+
+	if (!newCollection.wasteType) {
+		throw new Error('Type of waste not valid!')
+	}
 	return newCollection.save()
 }
 

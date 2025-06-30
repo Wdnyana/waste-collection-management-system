@@ -19,7 +19,11 @@ const startServer = async () => {
 		response.send('Hyper Express Server is running...🚀')
 	})
 
-	app.use(cors())
+	const corsOptions = {
+		origin: process.env.URL_FE,
+		optionsSuccessStatus: 200,
+	}
+	app.use(cors(corsOptions))
 
 	app.use('/api/vehicles', vehicleRouter)
 	app.use('/api/collections', collectionRouter)
