@@ -12,3 +12,16 @@ export const breadcrumbItems = [
 		label: 'Dashboard',
 	},
 ]
+
+export const breadcrumbItemsMobile = [
+	{
+		href: '/collector',
+		label: 'Collector',
+		icon: Truck,
+		variant: 'button' as const,
+		hasDropdown: true,
+	},
+	{
+		label: 'Dashboard',
+	},
+]

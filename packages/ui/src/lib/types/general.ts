@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Snippet } from 'svelte'
 
 export type MenuItem = {
   href?: string
@@ -14,4 +15,17 @@ export type BreadcrumbItem = {
   icon?: any
   variant?: 'button' | 'default'
   hasDropdown?: boolean
+}
+export type PropsTabs = {
+  realtime: Snippet
+  history: Snippet
+  statistic: Snippet
+  class?: string
+}
+
+export type PropsStatusIndicator = {
+  settings: Snippet
+  monitoring: Snippet
+  reset: Snippet
+  class?: string
 }

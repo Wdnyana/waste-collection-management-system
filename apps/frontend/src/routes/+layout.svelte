@@ -59,7 +59,7 @@
 
 	<!-- Main Konten -->
 	<main
-		class="h-full overflow-y-auto mx-4 mb-4 lg:p-4 lg:m-0 lg:row-start-2 lg:row-span-11 scroll-bar"
+		class="h-full overflow-y-auto lg:p-4 xl:p-7 lg:row-start-2 lg:row-span-11 scroll-bar"
 		class:lg:col-start-4={openSidebar}
 		class:lg:col-span-9={openSidebar}
 		class:xl:col-start-3={openSidebar}

@@ -27,15 +27,17 @@
 		>
 			<HamburgerMenu class="w-6 h-6" />
 		</Button>
-		{#if !open}
-			<div class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-8">
-				<Breadcrumb items={breadcrumbItems} />
-			</div>
-		{:else}
-			<div class="text-center ps-3 lg:text-start text-2xl font-semibold">
-				<Breadcrumb items={breadcrumbItems} />
-			</div>
-		{/if}
+		<div class="hidden md:flex md:item-center">
+			{#if !open}
+				<div class="ps-3 text-2xl text-center lg:text-start font-semibold lg:ms-8">
+					<Breadcrumb items={breadcrumbItems} />
+				</div>
+			{:else}
+				<div class="text-center ps-3 lg:text-start text-2xl font-semibold">
+					<Breadcrumb items={breadcrumbItems} />
+				</div>
+			{/if}
+		</div>
 	</div>
 
 	<div class="flex items-center h-full gap-4 pe-4">
