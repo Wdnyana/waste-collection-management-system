@@ -2,6 +2,7 @@
 	import { Breadcrumb, Tabs } from '@repo/ui'
 	import { breadcrumbItemsMobile } from '../lib/utils/breadcrumb'
 	import StatusIndicators from '../lib/components/Dashboard/StatusIndicators.svelte'
+	import Statistic from '../lib/components/Dashboard/Statistic.svelte'
 </script>
 
 <!-- konten dibawah ini -->
@@ -23,9 +24,7 @@
 			{/snippet}
 
 			{#snippet statistic()}
-				<div class="py-3 px-4">
-					<h1 class="text-green-500">asdasdads 1</h1>
-				</div>
+				<Statistic />
 			{/snippet}
 		</Tabs>
 	</div>

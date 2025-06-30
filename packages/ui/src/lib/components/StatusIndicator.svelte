@@ -4,14 +4,29 @@
   import { ChartLine, Wifi, WifiOff, Settings, RefreshCcw, CirclePlay } from '@lucide/svelte'
   import type { PropsStatusIndicator } from '../types/general'
   import Select from './Select.svelte'
-  import { indicators } from '../utils/indicators'
+  import { indicators, classColors } from '../utils/indicators'
 
   let { settings, monitoring, reset, class: className }: PropsStatusIndicator = $props()
+
+  const daerahOptions = {
+    AreaSelatanBarat: [
+      'Denpasar',
+      'Badung',
+      'Tabanan',
+      'Jembrana',
+      'Karangasem',
+      'Bangli',
+      'Gianyar',
+      'Buleleng',
+    ],
+  }
+
+  let selectedRegion: string | undefined
 
   const {
     elements: { root, list, content, trigger },
   } = createTabs({
-    defaultValue: 'settings',
+    defaultValue: 'monitoring',
   })
 
   const triggers = [
@@ -66,7 +81,7 @@
       <div
         class="flex justify-center flex-col xl:!flex-row xl:!items-center xl:!justify-center gap-3 lg:gap-4"
       >
-        <Select />
+        <Select options={daerahOptions} placeholder="Choose Region" bind:value={selectedRegion} />
 
         <div
           class="flex flex-col justify-center items-start md:!flex-row w-full lg:!items-center lg:!justify-start gap-3 xl:!gap-7 xl:!gap-9 mt-3 xl:mt-0"
@@ -75,8 +90,10 @@
 
           {#each indicators as indicator}
             <div class="flex flex-wrap items-center gap-5 text-start">
-              <span class="h-3 w-3 lg:h-5 lg:w-5 rounded-full bg-indicator-{indicator.colorLabel}"
-              ></span>
+              {#if indicator.colorLabel}
+                <span class="h-3 w-3 lg:h-5 lg:w-5 rounded-full {classColors[indicator.colorLabel]}"
+                ></span>
+              {/if}
               <p class="text-gray-600 whitespace-nowrap font-normal">{indicator.label}</p>
             </div>
           {/each}

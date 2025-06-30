@@ -1,5 +1,5 @@
 import { PUBLIC_API_BASE_URL } from '$env/static/public'
-import type { IProducer, IVehicle, ICollection, DashboardStats } from '@repo/shared'
+import type { IProducer, IVehicle, ICollection, DashboardStats, ChartData } from '@repo/shared'
 
 const BASE_URL = PUBLIC_API_BASE_URL
 
@@ -79,3 +79,5 @@ export const fetchHistoryByProducer = (producerId: string) =>
 export const deleteCollection = (id: string) => apiFetch<null>(`/api/collections/${id}`, 'DELETE')
 
 export const fetchDashboardStats = () => apiFetch<DashboardStats>('/api/dashboard/stats')
+export const fetchCollectionActivityChart = () =>
+	apiFetch<ChartData>('/api/dashboard/activity-chart')

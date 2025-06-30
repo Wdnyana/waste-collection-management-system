@@ -5,6 +5,12 @@ const collectionSchema = new Schema<ICollection & Document>(
 	{
 		producer: { type: Schema.Types.ObjectId, ref: 'Producer', required: true },
 		wasteDetail: { type: String, required: true },
+		wasteType: {
+			type: String,
+			enum: ['Recyclable', 'Organic', 'General', 'Hazardous'],
+			required: true,
+		},
+		weightInKg: { type: Number, required: true, default: 0 },
 		status: {
 			type: String,
 			enum: ['todo', 'next', 'done', 'anomaly'],

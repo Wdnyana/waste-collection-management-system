@@ -29,6 +29,8 @@ export interface ICollection {
   _id: string
   producer: string | IProducer
   wasteDetail: string
+  wasteType: string
+  weightInKg: number
   status: 'todo' | 'next' | 'done' | 'anomaly'
   location: {
     type: 'Point'
@@ -40,6 +42,40 @@ export interface ICollection {
 }
 
 export type DashboardStats = {
-  collections: Record<string, number>
-  vehicles: Record<string, number>
+  totalCollectedToday: StatDetail
+  activeCollections: StatDetail
+  producersServiced: StatDetail
+  efficiencyRate: StatDetail
+}
+
+export type StatCard = {
+  title: string
+  value: string
+  percentage: string
+  percentageColor: string
+  comparison: string
+  icon: any
+  iconBgColor: string
+  iconColor: string
+}
+
+export type Category = {
+  label: string
+  colorClass: string
+}
+
+export interface StatDetail {
+  value: string | number
+  subtext: string
+  change?: number
+}
+
+export interface ChartData {
+  labels: string[]
+  datasets: {
+    label: string
+    data: number[]
+    borderColor: string
+    tension: number
+  }[]
 }

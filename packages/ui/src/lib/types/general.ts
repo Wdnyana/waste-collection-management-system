@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Snippet } from 'svelte'
+import { classColors } from '../utils/indicators'
 
 export type MenuItem = {
   href?: string
@@ -28,4 +29,11 @@ export type PropsStatusIndicator = {
   monitoring: Snippet
   reset: Snippet
   class?: string
+}
+
+export type ColorLabel = keyof typeof classColors
+
+export interface Indicator {
+  label: string
+  colorLabel?: ColorLabel
 }

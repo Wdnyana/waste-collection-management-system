@@ -9,3 +9,12 @@ export const getStats = async (req: Request, res: Response) => {
 		res.status(500).json({ message: 'Server error fetching stats' })
 	}
 }
+
+export const getStatsChart = async (req: Request, res: Response) => {
+	try {
+		const stats = await dashboardService.getCollectionActivityChart()
+		res.status(200).json(stats)
+	} catch (error) {
+		res.status(500).json({ message: 'Server error fetching stats chart' })
+	}
+}
