@@ -15,6 +15,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@types/cors": "^2.8.19",
 		"@types/node": "^24.0.4",
 		"browser-sync": "^3.0.4",
 		"concurrently": "^9.2.0",
@@ -26,6 +27,7 @@
 		"typescript": "5.8.2"
 	},
 	"dependencies": {
+		"cors": "^2.8.5",
 		"dotenv": "^16.6.1",
 		"hyper-express": "^6.17.3",
 		"mongodb": "^6.17.0",

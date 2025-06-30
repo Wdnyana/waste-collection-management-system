@@ -3,7 +3,7 @@ import { ICollection } from '../types/mongo'
 
 const collectionSchema = new Schema<ICollection>(
 	{
-		producer: { type: Schema.Types.ObjectId, ref: 'producers', required: true },
+		producer: { type: Schema.Types.ObjectId, ref: 'Producer', required: true },
 		wasteDetail: { type: String, required: true },
 		status: {
 			type: String,
@@ -18,9 +18,9 @@ const collectionSchema = new Schema<ICollection>(
 		scheduledTime: { type: Date },
 		completedTime: { type: Date },
 
-		vehicleId: { type: Schema.Types.ObjectId, ref: 'vehicles' },
+		vehicleId: { type: Schema.Types.ObjectId, ref: 'Vehicle' },
 	},
 	{ timestamps: true },
 )
 
-export const Collection = model<ICollection>('collections', collectionSchema)
+export const Collection = model<ICollection>('Collection', collectionSchema)

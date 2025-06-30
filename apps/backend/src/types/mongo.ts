@@ -26,7 +26,7 @@ export interface IProducer extends Document {
 }
 
 export interface ICollection extends Document {
-	producer: Types.ObjectId
+	producer: Types.ObjectId | IProducer
 	wasteDetail: string
 	status: 'todo' | 'next' | 'done' | 'anomaly'
 	location: {
@@ -35,5 +35,5 @@ export interface ICollection extends Document {
 	}
 	scheduledTime?: Date
 	completedTime?: Date
-	vehicleId?: Types.ObjectId
+	vehicleId?: Types.ObjectId | IVehicle
 }

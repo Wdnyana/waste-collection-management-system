@@ -9,7 +9,7 @@ export const menuGroups = [
   {
     title: 'operations',
     items: [
-      { href: '#schedule-collect', label: 'Schedule Collection', icon: IdCard },
+      { href: '#schedule-collect', label: 'Schedule Collect', icon: IdCard },
       { href: '#collect-history', label: 'Collect History', icon: FileText },
       { href: '#waybill', label: 'Waybill', icon: FileText },
       { href: '#report', label: 'Report', icon: FileText },
