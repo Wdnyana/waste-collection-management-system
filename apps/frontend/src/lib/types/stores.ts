@@ -1,6 +1,5 @@
-import { Document, Types } from 'mongoose'
-
-export interface IVehicle extends Document {
+export interface IVehicle {
+	_id: string
 	driver: string
 	totalStops: number
 	stopsDone: number
@@ -11,7 +10,8 @@ export interface IVehicle extends Document {
 	status: 'active' | 'idle' | 'maintenance'
 }
 
-export interface IProducer extends Document {
+export interface IProducer {
+	_id: string
 	name: string
 	address: string
 	city: string
@@ -25,8 +25,9 @@ export interface IProducer extends Document {
 	}
 }
 
-export interface ICollection extends Document {
-	producer: Types.ObjectId | IProducer
+export interface ICollection {
+	_id: string
+	producer: string | IProducer
 	wasteDetail: string
 	status: 'todo' | 'next' | 'done' | 'anomaly'
 	location: {
@@ -35,5 +36,5 @@ export interface ICollection extends Document {
 	}
 	scheduledTime?: Date
 	completedTime?: Date
-	vehicleId?: Types.ObjectId | IVehicle
+	vehicleId?: string | IVehicle
 }

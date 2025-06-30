@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
-import { IProducer } from '../types/mongo'
+import { Schema, model, Document } from 'mongoose'
+import type { IProducer } from '@repo/shared'
 
-const producerSchema = new Schema<IProducer>(
+const producerSchema = new Schema<IProducer & Document>(
 	{
 		name: { type: String, required: true },
 		address: { type: String, required: true },
@@ -20,4 +20,4 @@ const producerSchema = new Schema<IProducer>(
 
 producerSchema.index({ location: '2dsphere' })
 
-export const Producer = model<IProducer>('Producer', producerSchema)
+export const Producer = model<IProducer & Document>('Producer', producerSchema)

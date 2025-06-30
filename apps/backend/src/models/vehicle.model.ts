@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
-import { IVehicle } from '../types/mongo'
+import { Schema, model, Document } from 'mongoose'
+import type { IVehicle } from '@repo/shared'
 
-const vehicleSchema = new Schema<IVehicle>(
+const vehicleSchema = new Schema<IVehicle & Document>(
 	{
 		driver: { type: String, required: true },
 		totalStops: { type: Number, required: true, default: 0 },
@@ -22,4 +22,4 @@ const vehicleSchema = new Schema<IVehicle>(
 
 vehicleSchema.index({ currentLocation: '2dsphere' })
 
-export const Vehicle = model<IVehicle>('Vehicle', vehicleSchema)
+export const Vehicle = model<IVehicle & Document>('Vehicle', vehicleSchema)

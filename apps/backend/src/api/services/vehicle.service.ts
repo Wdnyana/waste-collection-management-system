@@ -1,5 +1,5 @@
 import { Vehicle } from '../../models/vehicle.model'
-import { IVehicle } from '../../types/mongo'
+import type { IVehicle } from '@repo/shared'
 import { Types } from 'mongoose'
 
 export const createVehicle = async (data: Partial<IVehicle>): Promise<IVehicle> => {

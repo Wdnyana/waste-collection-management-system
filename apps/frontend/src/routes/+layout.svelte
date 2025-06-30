@@ -5,9 +5,11 @@
 	import { onMount } from 'svelte'
 	import { browser } from '$app/environment'
 
-	import { Button } from '@repo/ui'
 	import '@repo/ui/global-styles'
 	import '../styles/app.css'
+	import 'leaflet/dist/leaflet.css'
+
+	import { Button } from '@repo/ui'
 	import Sidebar from '../lib/components/Layout/Sidebar.svelte'
 	import Header from '../lib/components/Layout/Header.svelte'
 

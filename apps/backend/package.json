@@ -1,8 +1,9 @@
 {
-	"name": "backend",
+	"name": "@repo/backend",
 	"version": "1.0.0",
 	"description": "",
 	"main": "src/server.js",
+	"export": {},
 	"scripts": {
 		"dev:server": "ts-node-dev --respawn --transpile-only src/server.ts",
 		"dev": "concurrently \"pnpm run dev:server\" \"browser-sync start --proxy 'http://localhost:3000' --port 5000 --files 'src/**/*.{ts,js,json,html,css,ejs}' --no-open\"",
@@ -27,6 +28,7 @@
 		"typescript": "5.8.2"
 	},
 	"dependencies": {
+		"@repo/shared": "workspace:*",
 		"cors": "^2.8.5",
 		"dotenv": "^16.6.1",
 		"hyper-express": "^6.17.3",
