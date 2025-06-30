@@ -5,9 +5,9 @@ const collectionRouter = new Router()
 
 collectionRouter.post('/', collectionController.addCollection)
 collectionRouter.get('/', collectionController.getCollections)
-collectionRouter.put('/:id/status', collectionController.updateStatus)
 collectionRouter.get('/:id/details', collectionController.getDetails)
 collectionRouter.get('/:id/history', collectionController.getHistory)
-collectionRouter.get('/:id', collectionController.deleteCollection)
+collectionRouter.put('/:id/status', collectionController.updateStatus)
+collectionRouter.delete('/:id', collectionController.deleteCollection)
 
 export default collectionRouter

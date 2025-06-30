@@ -10,7 +10,7 @@
 		<Breadcrumb items={breadcrumbItemsMobile} />
 	</div>
 
-	<div class="w-full px-3 lg:px-0">
+	<div class="w-full">
 		<Tabs>
 			{#snippet realtime()}
 				<StatusIndicators />

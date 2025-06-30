@@ -1,5 +1,5 @@
 import { Collection } from '../../models/collection.model'
-import { ICollection } from '../../types/mongo'
+import type { ICollection } from '@repo/shared'
 import { Types } from 'mongoose'
 
 export const createCollection = async (data: Partial<ICollection>): Promise<ICollection> => {

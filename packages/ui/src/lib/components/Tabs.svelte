@@ -21,7 +21,9 @@
 </script>
 
 <div use:melt={$root} class={cn('flex flex-col rounded-xl bg-transparent', className)}>
-  <div class="flex w-full flex-col lg:!flex-row gap-4 flex-row items-center justify-between">
+  <div
+    class="flex w-full flex-col lg:!flex-row py-3 px-4 gap-4 flex-row items-center justify-between"
+  >
     <div class="flex gap-2 items-center text-sm py-2 px-3 border border-gray-300 rounded-[7px]">
       <Clock class="h-4 w-4 text-gray-500" />
       <p class="text-gray-600 whitespace-nowrap">Monday, 14 April 2025 10:00:00</p>

@@ -1,5 +1,5 @@
 import { Producer } from '../../models/producer.model'
-import { IProducer } from '../../types/mongo'
+import type { IProducer } from '@repo/shared'
 import { Types } from 'mongoose'
 
 export const createProducer = async (data: Partial<IProducer>): Promise<IProducer> => {

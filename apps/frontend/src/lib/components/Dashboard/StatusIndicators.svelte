@@ -15,9 +15,7 @@
 		{/snippet}
 
 		{#snippet reset()}
-			<div class="py-3 px-4 rounded-[10px] !shadow-lg">
-				<h1 class="text-green-500">Reset Data Here !!</h1>
-			</div>
+			<div class="py-3 px-4 rounded-[10px] !shadow-lg">Reset Here !!</div>
 		{/snippet}
 	</StatusIndicator>
 </div>

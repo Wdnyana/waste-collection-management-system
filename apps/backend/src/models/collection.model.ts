@@ -1,7 +1,7 @@
-import { Schema, model } from 'mongoose'
-import { ICollection } from '../types/mongo'
+import { Schema, model, Document } from 'mongoose'
+import type { ICollection } from '@repo/shared'
 
-const collectionSchema = new Schema<ICollection>(
+const collectionSchema = new Schema<ICollection & Document>(
 	{
 		producer: { type: Schema.Types.ObjectId, ref: 'Producer', required: true },
 		wasteDetail: { type: String, required: true },
@@ -23,4 +23,4 @@ const collectionSchema = new Schema<ICollection>(
 	{ timestamps: true },
 )
 
-export const Collection = model<ICollection>('Collection', collectionSchema)
+export const Collection = model<ICollection & Document>('Collection', collectionSchema)
