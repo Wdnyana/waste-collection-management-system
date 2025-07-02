@@ -1,5 +1,6 @@
 <script lang="ts">
   import { categories, bgCharts } from '../utils/card-stat'
+  import type { Snippet } from 'svelte'
   import type { ChartData } from 'chart.js'
 
   export let title: string
@@ -7,12 +8,14 @@
   export let loading: boolean = true
   export let error: string | null = null
   export let chartData: ChartData | null = null
+  export let children: Snippet
 
   $: legendItems =
     chartData?.datasets.map((dataset: any) => ({
       label: dataset.label,
 
       bgColor: dataset.borderColor || '#ccc',
+      color: dataset.textColor,
     })) || []
 </script>
 
@@ -31,15 +34,19 @@
       {:else if error}
         <div class="flex items-center justify-center h-full text-red-500 text-center">{error}</div>
       {:else if chartData}
-        <slot />
+        {@render children()}
       {/if}
     </div>
 
     <div class="flex gap-5 justify-center flex-wrap">
       {#each legendItems as item}
         <div class="flex items-center gap-2">
-          <span class="w-3 h-3 rounded-full" style="background-color: {item.bgColor};"></span>
-          <p class="text-sm text-gray-600">{item.label}</p>
+          <p
+            class="text-sm text-gray-600 py-1 px-2 rounded-[4px]"
+            style="background-color: {item.bgColor}; color: {item.color}"
+          >
+            {item.label}
+          </p>
         </div>
       {/each}
     </div>
@@ -55,7 +62,7 @@
       <span class="h-[350px] w-[350px] rounded-full bg-blue-800"></span>
     </div>
 
-    <div class="flex gap-5 justify-evenly">
+    <div class="flex gap-5 justify-center lg:!justify-evenly flex-wrap">
       {#each categories as category}
         <div class="flex items-center gap-2">
           <span class="h-3 w-3 rounded-full {category.colorClass}"></span>

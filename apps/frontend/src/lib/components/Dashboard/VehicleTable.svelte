@@ -1,41 +1,54 @@
 <script lang="ts">
 	import { Table } from '@repo/ui'
+	import type { ICollection, IProducer, IVehicle } from '@repo/shared'
 
-	type TableRow = {
-		Name: string
-		Subject: string
-		Age: number
-		Val: number
-	}
+	const { vehicles, collections, loading } = $props<{
+		vehicles: IVehicle[]
+		collections: ICollection[]
+		loading: boolean
+	}>()
 
-	const tableData: TableRow[] = [
-		{
-			Name: 'Maria',
-			Subject: 'Math',
-			Age: 14,
-			Val: 5.5,
-		},
-		{
-			Name: 'Jose',
-			Subject: 'Science',
-			Age: 13,
-			Val: 7.5,
-		},
-		{
-			Name: 'Maria u',
-			Subject: 'Math',
-			Age: 13,
-			Val: 9.5,
-		},
-		{
-			Name: 'Joseb',
-			Subject: 'Science',
-			Age: 15,
-			Val: 8.5,
-		},
-	]
+	const vehiclesTable = $derived(() => {
+		if (!vehicles) return []
+
+		return vehicles.map((vehicle: IVehicle) => ({
+			Vehicle: vehicle.lisencePlate,
+			Driver: vehicle.driver,
+			'Total Stop': vehicle.totalStops,
+			'Stops Done': vehicle.stopsDone,
+			_id: vehicle._id,
+		}))
+	})
+
+	const producerTable = $derived(() => {
+		if (!collections) return []
+
+		return collections.map((collection: ICollection) => {
+			const producer =
+				typeof collection.producer === 'object' ? (collection.producer as IProducer) : null
+
+			return {
+				Producer: producer?.name || '',
+				'Waste Details': collection.wasteType + ', ' + collection.wasteDetail,
+				Status: collection.status,
+				_id: collection._id,
+			}
+		})
+	})
 </script>
 
-<div class="w-full">
-	<Table data={tableData} highlightColumns={['Name', 'Subject']} />
-</div>
+{#if loading}
+	{#each Array(3) as _}
+		<p>Table Loading....</p>
+	{/each}
+{:else}
+	<div class="grid grid-cols-1 gap-4 w-full">
+		<Table
+			data={vehiclesTable()}
+			hrefPrefix="#vehicle"
+			highlightColumns={{ 'Total Stop': 'text-gray-600', 'Stops Done': 'text-gray-600' }}
+		/>
+
+		<Table data={producerTable()} hrefPrefix="#vehicle" highlightColumns={{}} />
+	</div>
+{/if}

@@ -6,6 +6,7 @@ const vehicleSchema = new Schema<IVehicle & Document>(
 		driver: { type: String, required: true },
 		totalStops: { type: Number, required: true, default: 0 },
 		stopsDone: { type: Number, required: true, default: 0 },
+		lisencePlate: { type: String, required: true },
 		currentLocation: {
 			type: { type: String, enum: ['Point'], required: true },
 			coordinates: { type: [Number], required: true },
