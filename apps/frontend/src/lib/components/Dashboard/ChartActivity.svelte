@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { onMount, tick } from 'svelte'
-	import { Line } from 'svelte-chartjs'
 	import {
 		Chart as ChartJS,
 		Title,
@@ -10,35 +8,36 @@
 		CategoryScale,
 		LinearScale,
 		PointElement,
+		LineController,
 	} from 'chart.js'
 	import type { ChartData } from '@repo/shared'
-	import { fetchCollectionActivityChart } from '../../services/api'
 	import { Chart } from '@repo/ui'
+	import { onDestroy, onMount } from 'svelte'
 
-	ChartJS.register(Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale, PointElement)
+	ChartJS.register(
+		Title,
+		Tooltip,
+		Legend,
+		LineElement,
+		CategoryScale,
+		LinearScale,
+		PointElement,
+		LineController,
+	)
 
-	let chartData: ChartData | null = null
-	let loading = true
-	let error: string | null = null
+	export let chartData: ChartData | null = null
+	export let loading = true
+	export let error: string | null = null
 
-	onMount(async () => {
-		try {
-			const data = await fetchCollectionActivityChart()
-
-			await tick()
-			chartData = data
-		} catch (e: any) {
-			error = e.message || 'Failed to load chart data.'
-		} finally {
-			loading = false
-		}
-	})
+	let canvasElement: HTMLCanvasElement
+	let chartInstance: ChartJS | null = null
 
 	const options = {
 		responsive: true,
 		maintainAspectRatio: false,
 		plugins: {
 			legend: {
+				display: false,
 				position: 'bottom' as const,
 			},
 			title: {
@@ -54,6 +53,26 @@
 			},
 		},
 	}
+
+	$: if (chartData && chartInstance) {
+		;((chartInstance.data = chartData), chartInstance.update())
+	}
+
+	onMount(() => {
+		if (canvasElement && chartData) {
+			chartInstance = new ChartJS(canvasElement, {
+				type: 'line',
+				data: chartData,
+				options: options,
+			})
+		}
+	})
+
+	onDestroy(() => {
+		if (chartInstance) {
+			chartInstance.destroy()
+		}
+	})
 </script>
 
 <Chart
@@ -64,6 +83,6 @@
 	{chartData}
 >
 	{#if chartData}
-		<Line data={chartData} {options} />
+		<canvas bind:this={canvasElement} style="display: block; width: 100%; height: 100%;"></canvas>
 	{/if}
 </Chart>

@@ -12,7 +12,9 @@ export const createCollection = async (data: Partial<ICollection>): Promise<ICol
 }
 
 export const findAllCollections = async (): Promise<ICollection[]> => {
-	return Collection.find().populate('producer', 'name city address')
+	return Collection.find()
+		.populate('producer', 'name city address')
+		.populate('vehicleId', 'driver lisencePlate')
 }
 
 export const updateCollectionStatus = async (

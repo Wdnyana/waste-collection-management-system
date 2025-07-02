@@ -86,6 +86,7 @@ export const getDashboardStats = async (): Promise<DashboardStats> => {
 		efficiencyRate,
 	}
 }
+
 export const getCollectionActivityChart = async () => {
 	const thirtyDaysAgo = new Date()
 	thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
@@ -161,10 +162,34 @@ export const getCollectionActivityChart = async () => {
 	return {
 		labels,
 		datasets: [
-			{ label: 'Recyclable', data: datasets.Recyclable, borderColor: '#8b5cf6', tension: 0.4 },
-			{ label: 'Organic', data: datasets.Organic, borderColor: '#22c55e', tension: 0.4 },
-			{ label: 'General', data: datasets.General, borderColor: '#f97316', tension: 0.4 },
-			{ label: 'Hazardous', data: datasets.Hazardous, borderColor: '#ef4444', tension: 0.4 },
+			{
+				label: 'Recyclable',
+				data: datasets.Recyclable,
+				borderColor: '#8b5cf630',
+				textColor: '#8b5cf6',
+				tension: 0.4,
+			},
+			{
+				label: 'Organic',
+				data: datasets.Organic,
+				borderColor: '#22c55e30',
+				textColor: '#22c55e',
+				tension: 0.4,
+			},
+			{
+				label: 'General',
+				data: datasets.General,
+				borderColor: '#f9731630',
+				textColor: '#f97316',
+				tension: 0.4,
+			},
+			{
+				label: 'Hazardous',
+				data: datasets.Hazardous,
+				borderColor: '#ef444430',
+				textColor: '#ef4444',
+				tension: 0.4,
+			},
 		],
 	}
 }
