@@ -12,7 +12,7 @@
 	const vehicleMarkers = new Map<string, L.Marker>()
 	const createVehicleIcon = (color: string = 'blue') => {
 		return L.divIcon({
-			html: `<div class="p-1 rounded-full bg-white shadow-lg"><div class="w-4 h-4 rounded-full bg-${color}-500"></div></div>`,
+			html: `<div class="p-1 rounded-full bg-blue-800 shadow-lg"><div class="w-4 h-4 rounded-full bg-${color}-500"></div></div>`,
 			className: '',
 			iconSize: [24, 24],
 			iconAnchor: [12, 12],

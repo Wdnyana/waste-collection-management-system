@@ -8,8 +8,17 @@
 	import StatusIndicators from '../lib/components/Dashboard/StatusIndicators.svelte'
 	import ChartActivity from '../lib/components/Dashboard/ChartActivity.svelte'
 	import CollectionTable from '../lib/components/Dashboard/CollectionTable.svelte'
+	import { collections } from '../lib/stores/collections'
+	import { vehicles } from '../lib/stores/vehicles'
 
 	export let data: PageData
+
+	$: if (data.vehicles) {
+		vehicles.set(data.vehicles)
+	}
+	$: if (data.collections) {
+		collections.set(data.collections)
+	}
 
 	$: isLoading = !data.stats && !data.error
 
@@ -26,7 +35,7 @@
 	<div class="w-full">
 		<Tabs>
 			{#snippet realtime()}
-				<StatusIndicators {data} />
+				<StatusIndicators {isLoading} />
 			{/snippet}
 
 			{#snippet history()}
