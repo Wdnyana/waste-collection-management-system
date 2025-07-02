@@ -7,6 +7,7 @@ function createVehicleStore() {
 
 	return {
 		subscribe,
+		set,
 		load: async () => {
 			try {
 				const data = await api.fetchVehicles()

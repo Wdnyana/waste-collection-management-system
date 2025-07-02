@@ -7,6 +7,7 @@ function createCollectionStore() {
 
 	return {
 		subscribe,
+		set,
 		load: async () => {
 			try {
 				const data = await api.fetchCollections()
