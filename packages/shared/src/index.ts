@@ -1,3 +1,8 @@
+export type LayoutProps = {
+  open: boolean
+  toggle: () => void
+}
+
 export interface IVehicle {
   _id: string
   driver: string

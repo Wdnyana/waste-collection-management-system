@@ -4,7 +4,7 @@
 	import { DropdownMenu } from '@repo/ui'
 
 	import { SidebarItem, Button } from '@repo/ui'
-	import type { LayoutProps } from '../../types/type-layout'
+	import type { LayoutProps } from '@repo/shared'
 	import Logo from '../../assets/Group.png'
 
 	let { open, toggle }: LayoutProps = $props()

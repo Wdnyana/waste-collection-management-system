@@ -43,7 +43,7 @@
 	}
 
 	onMount(() => {
-		map = L.map(mapElement).setView([-8.4095, 115.1889], 13)
+		map = L.map(mapElement).setView([-8.4095, 115.1889], 10)
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; OpenStreetMap contributors',

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { LayoutProps } from '../../types/type-layout'
+	import type { LayoutProps } from '@repo/shared'
 	import { DropdownMenu, Button, Breadcrumb } from '@repo/ui'
 
 	import { HamburgerMenu, Enter } from 'radix-icons-svelte'

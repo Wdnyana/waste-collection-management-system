@@ -59,21 +59,21 @@
 		<p>Table Loading....</p>
 	{/each}
 {:else}
-	<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 p-3 lg:p-2 shadow-lg">
-		<div class="lg:!col-span-5 xl:!col-span-4 shadow-lg rounded-[10px] !h-full bg-white">
+	<div class="grid grid-cols-1 xl:grid-cols-12 gap-4 p-3 lg:p-2 shadow-lg">
+		<div class="xl:!col-span-4 shadow-lg rounded-[10px] !h-full bg-white">
 			<Table
 				data={producerTableData()}
-				hrefPrefix="/collections"
+				hrefPrefix="/collect"
 				highlightColumns={{ Category: 'text-gray-500' }}
 				{hoveredId}
 				onRowHover={handleRowHover}
 			/>
 		</div>
 
-		<div class="lg:!col-span-7 xl:!col-span-8 shadow-lg rounded-[10px] !h-full bg-white">
+		<div class="xl:!col-span-8 shadow-lg rounded-[10px] !h-full bg-white">
 			<Table
 				data={detailsTableData()}
-				hrefPrefix="/collections"
+				hrefPrefix="/collect"
 				highlightColumns={{
 					Status: 'text-green-800',
 					Date: 'text-gray-900',
