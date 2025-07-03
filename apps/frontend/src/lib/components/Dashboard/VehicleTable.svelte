@@ -45,10 +45,10 @@
 	<div class="grid grid-cols-1 gap-4 w-full">
 		<Table
 			data={vehiclesTable()}
-			hrefPrefix="#vehicle"
+			hrefPrefix="/collect"
 			highlightColumns={{ 'Total Stop': 'text-gray-600', 'Stops Done': 'text-gray-600' }}
 		/>
 
-		<Table data={producerTable()} hrefPrefix="#vehicle" highlightColumns={{}} />
+		<Table data={producerTable()} hrefPrefix="/collect" highlightColumns={{}} />
 	</div>
 {/if}

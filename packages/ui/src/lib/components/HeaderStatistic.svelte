@@ -14,7 +14,7 @@
 <div
   class="flex flex-col justify-center items-center gap-4 lg:!flex-row lg:!items-center lg:!justify-between py-4 px-5 bg-white !shadow-lg rounded-[10px]"
 >
-  <p class="text-gray-900">Statistic this month</p>
+  <p class="text-gray-900 w-full text-center lg:text-start">Statistic this month</p>
   <div
     class="flex gap-4 justify-center md:items-center lg:!justify-end lg:!items-center flex-col md:!flex-row w-full"
   >
