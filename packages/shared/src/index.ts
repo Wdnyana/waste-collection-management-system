@@ -8,6 +8,7 @@ export interface IVehicle {
   driver: string
   totalStops: number
   stopsDone: number
+  lisencePlate: string
   currentLocation: {
     type: 'Point'
     coordinates: [number, number]
